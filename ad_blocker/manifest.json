@@ -1,19 +1,28 @@
 {
-  "name": "Joep's Google Chrome Adblocker",
-  "version": "1.0",
-  "description": "A simple Google Chrome adblocker",
+  "name": "Joep's Adblocker",
+  "version": "2.0",
+  "description": "A simple Chrome adblocker with on/off toggle",
   "manifest_version": 3,
   "permissions": [
-    "declarativeNetRequest"
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "storage",
+    "tabs"
   ],
-    "declarative_net_request": {
-      "rule_resources": [
-        {
-          "id": "ruleset_1",
-          "enabled": true,
-          "path": "rules.json"
-        }
-      ]
-    }
-
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Joep's Adblocker"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
 }
